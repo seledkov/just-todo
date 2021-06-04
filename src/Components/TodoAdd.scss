@@ -1,0 +1,8 @@
+.todo-add {
+  &__correct {
+    border-color: black;
+  }
+  &__incorrect {
+    border-color: red;
+  }
+}

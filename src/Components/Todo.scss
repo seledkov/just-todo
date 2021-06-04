@@ -1,0 +1,11 @@
+.todo {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  &__done {
+    color: rgb(3, 150, 3);
+  }
+  &__undone {
+    color: rgb(0, 0, 0);
+  }
+}
