@@ -4,9 +4,7 @@ const TodosFilters = (props: any) => {
   return (
     <div>
       <select>
-        <option selected value='all'>
-          all
-        </option>
+        <option value='all'>all</option>
         <option value='done'>done</option>
         <option value='undone'>undone</option>
       </select>

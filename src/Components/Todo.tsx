@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import './Todo.scss';
-const Todo = (props: any) => {
-  const [isDone, setIsDone] = useState(false);
-  const colorHandler = () => {
-    setIsDone((prevState) => !prevState);
-  };
+const Todo = (props: ITodo) => {
+  const complitedHandler = () => {};
   return (
-    <div className='todo' onClick={colorHandler}>
-      <p className={isDone ? 'todo__done' : 'todo__undone'}>
-        todo text Переключение статуса записи Выполнено / Невыполненный при клике на её название
+    <li className='todo' onClick={complitedHandler}>
+      <p className={props.isDone ? 'todo__done' : 'todo__undone'}>
+        <span>{props.text} </span>
+        // Переключение статуса записи Выполнено / Невыполненный при клике на её название
       </p>
-    </div>
+    </li>
   );
 };
 

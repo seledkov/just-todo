@@ -2,19 +2,21 @@ import React, { useState } from 'react';
 import './TodoAdd.scss';
 const TodoAdd = (props: any) => {
   const [entreredTodo, setEnteredTodo] = useState('');
-  const addTodoHandler = () => {
+  const addTodo = () => {
     if (entreredTodo.length <= 10) {
+      props.onAddTodo({
+        id: Math.random().toString(),
+        text: entreredTodo,
+        isDone: false,
+      });
+      setEnteredTodo('');
       console.log('correct length');
     } else {
       console.log('need lenght < or = 10 symbols', entreredTodo);
     }
   };
   return (
-    <div>
-      <p>
-        Добавление новой записи Новая запись добавляет при условии, что её длина меньше N символов
-        или равна ей
-      </p>
+    <div className='todo-add'>
       <input
         className={entreredTodo.length <= 10 ? 'todo-add__correct' : 'todo-add__incorrect'}
         type='text'
@@ -23,7 +25,7 @@ const TodoAdd = (props: any) => {
           setEnteredTodo(event.target.value);
         }}
       />{' '}
-      <button onClick={addTodoHandler}> Add todo</button>
+      <button onClick={addTodo}> Add todo</button>
     </div>
   );
 };
