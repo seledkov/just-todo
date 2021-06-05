@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './TodoAdd.scss';
 const TodoAdd = (props: any) => {
   const [entreredTodo, setEnteredTodo] = useState('');
+
   const addTodo = () => {
     if (entreredTodo.length <= 10) {
       props.onAddTodo({
@@ -21,6 +22,11 @@ const TodoAdd = (props: any) => {
         className={entreredTodo.length <= 10 ? 'todo-add__correct' : 'todo-add__incorrect'}
         type='text'
         value={entreredTodo}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter') {
+            addTodo();
+          }
+        }}
         onChange={(event: any) => {
           setEnteredTodo(event.target.value);
         }}
