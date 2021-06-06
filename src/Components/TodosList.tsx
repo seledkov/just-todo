@@ -14,6 +14,7 @@ const TodosList = (props: any) => {
       />
     );
   });
+  console.log(renderList);
   return <ul>{renderList.length > 0 ? renderList : 'please add todo'}</ul>;
 };
 

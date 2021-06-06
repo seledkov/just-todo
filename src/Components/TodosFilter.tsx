@@ -6,10 +6,11 @@ const TodosFilters = (props: any) => {
   const [undoneTodos, setUndoneTodos] = useState([]);
   //props.setSortFilter
   useEffect(() => {
-    setFilterAll();
-    setFilterDone();
     setFilterUndone();
-  }, [props.todos]);
+    setFilterDone();
+    setFilterAll();
+    console.log('useEffect refilter');
+  }, [props.todos, allTodos]);
   const setFilterAll = () => {
     setAllTodos((prevState) => props.todos);
     props.onSetFilteredTodos(allTodos);

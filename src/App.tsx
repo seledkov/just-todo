@@ -8,7 +8,7 @@ const App = () => {
   const [filteredTodos, setFilteredTodos] = useState<ITodo[]>([]);
 
   const addTodoHandler = (newTodo: ITodo) => {
-    setTodos((prevState) => [...prevState, newTodo]);
+    setTodos((prevState) => [newTodo, ...prevState]);
   };
 
   const removeTodoHandler = (todoId: string) => {
@@ -29,15 +29,14 @@ const App = () => {
 
   return (
     <div className='App'>
-      {/* <TodosFilter
+      <TodosFilter
         todos={todos}
         onSetFilteredTodos={setFilteredTodos}
         filteredTodos={filteredTodos}
-        // setSortFilter={setSortFilter}
-      /> */}
+      />
       <TodoAdd onAddTodo={addTodoHandler} />
       <TodosList
-        filteredTodos={todos}
+        filteredTodos={filteredTodos}
         onCompleteTodoToggle={completeTodoToggle}
         onRemoveTodo={removeTodoHandler}
       />
