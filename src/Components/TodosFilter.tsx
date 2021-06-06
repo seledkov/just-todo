@@ -27,11 +27,9 @@ const TodosFilters = (props: any) => {
 
   return (
     <div className='todos-filter'>
-      <button onClick={setFilterAll}>all {allTodos.length}</button>
-      <button onClick={setFilterDone}>done {doneTodos.length}</button>
-      <button onClick={setFilterUndone}>undone {undoneTodos.length}</button>
-      <p>filters Фильтрация по типу / все, выполненные, невыполненные</p>
-      <p> Отображение счётчика выполненных и невыполненных задач</p>
+      <button onClick={setFilterAll}>all ({allTodos.length})</button>
+      <button onClick={setFilterDone}>done ({doneTodos.length})</button>
+      <button onClick={setFilterUndone}>undone ({undoneTodos.length})</button>
     </div>
   );
 };
