@@ -10,6 +10,7 @@ const TodoAdd = (props: any) => {
         text: entreredTodo,
         isDone: false,
       });
+      console.log(entreredTodo);
       setEnteredTodo('');
       console.log('correct length');
     } else {
@@ -19,7 +20,7 @@ const TodoAdd = (props: any) => {
   return (
     <div className='todo-add'>
       <input
-        className={entreredTodo.length <= 10 ? 'todo-add__correct' : 'todo-add__incorrect'}
+        className={entreredTodo.length <= 10 ? 'todo-add_correct' : 'todo-add_incorrect'}
         type='text'
         value={entreredTodo}
         onKeyDown={(event) => {

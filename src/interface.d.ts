@@ -3,4 +3,5 @@ interface ITodo {
   text: string;
   isDone: boolean;
   onCompleteTodoToggle?: () => {};
+  onRemoveTodo?: () => {};
 }

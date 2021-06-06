@@ -1,12 +1,13 @@
 .todo {
-  display: block;
-  width: 6rem;
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
   height: 1.5rem;
   margin: 1rem;
   padding: 0.5rem;
   border: 1px solid rgb(218, 218, 218);
   animation: fadein 1s forwards;
-  &__done {
+  &_done {
     position: relative;
     &::before {
       position: absolute;
@@ -19,7 +20,7 @@
       transition: 0.5s;
     }
   }
-  &__undone {
+  &_undone {
     position: relative;
     &::before {
       content: ('');

@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TodoAdd from './Components/TodoAdd';
-import TodosFilters from './Components/TodosFilter';
+import TodosFilter from './Components/TodosFilter';
 import TodosList from './Components/TodosList';
 
 const App = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
+  const [filteredTodos, setFilteredTodos] = useState<ITodo[]>([]);
+
   const addTodoHandler = (newTodo: ITodo) => {
     setTodos((prevState) => [...prevState, newTodo]);
+  };
+
+  const removeTodoHandler = (todoId: string) => {
+    const changedTodos = [...todos];
+    const removedTodoId = todos.findIndex((todo: ITodo) => todo.id === todoId);
+    changedTodos.splice(removedTodoId, 1);
+    setTodos(changedTodos);
   };
   const completeTodoToggle = (todoId: string) => {
     const changedTodos = todos.map((todo: ITodo) => {
@@ -15,13 +24,23 @@ const App = () => {
       }
       return todo;
     });
-    setTodos([...changedTodos]);
+    setTodos(changedTodos);
   };
+
   return (
     <div className='App'>
-      <TodosFilters />
+      {/* <TodosFilter
+        todos={todos}
+        onSetFilteredTodos={setFilteredTodos}
+        filteredTodos={filteredTodos}
+        // setSortFilter={setSortFilter}
+      /> */}
       <TodoAdd onAddTodo={addTodoHandler} />
-      <TodosList todos={todos} onCompleteTodoToggle={completeTodoToggle} />
+      <TodosList
+        filteredTodos={todos}
+        onCompleteTodoToggle={completeTodoToggle}
+        onRemoveTodo={removeTodoHandler}
+      />
     </div>
   );
 };
